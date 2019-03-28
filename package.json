@@ -1,0 +1,53 @@
+{
+  "name": "pino-datadog",
+  "version": "0.0.1",
+  "description": "A transport for pino that sends messages to DataDog",
+  "homepage": "https://github.com/ovhemert/pino-datadog",
+  "main": "src/index.js",
+  "scripts": {
+    "dev:cli": "node ./test/debug.js | node ./src/cli.js",
+    "lint": "standard",
+    "test": "standard && tap test/*.test.js --coverage --100",
+    "test:appveyor": "standard && tap test/*.test.js --coverage",
+    "test:report": "standard && tap test/*.test.js --coverage  --coverage-report=html --100",
+    "posttest": "tap --coverage --coverage-report=lcovonly"
+  },
+  "bin": {
+    "pino-datadog": "src/cli.js"
+  },
+  "keywords": [
+    "pino",
+    "pino-transport",
+    "datadog",
+    "logging"
+  ],
+  "author": "Osmond van Hemert <osmond@vanhemert.nu>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ovhemert/pino-datadog.git"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "precommit": [
+    "lint",
+    "test"
+  ],
+  "devDependencies": {
+    "pino-multi-stream": "^4.0.2",
+    "sinon": "^7.2.5",
+    "standard": "^12.0.0",
+    "tap": "^12.5.3"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "batch2": "^1.0.1",
+    "commander": "^2.19.0",
+    "fast-json-parse": "^1.0.3",
+    "pumpify": "^1.5.1",
+    "split2": "^3.1.1",
+    "stream": "0.0.2",
+    "through2": "^3.0.1"
+  }
+}
