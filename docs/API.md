@@ -5,7 +5,7 @@ The library exposes a function to write directly to DataDog from your own applic
 Example:
 
 ```js
-const datadog = require('pino-v')
+const datadog = require('pino-datadog')
 const pinoms = require('pino-multi-stream')
 // create the datadog destination stream
 const writeStream = await datadog.createWriteStream()
