@@ -12,7 +12,7 @@
     "test:report": "standard && tap test/*.test.js --coverage  --coverage-report=html --100",
     "posttest": "tap --coverage --coverage-report=lcovonly",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "postinstall": "npm run snyk-protect"
   },
   "bin": {
     "pino-datadog": "src/cli.js"
