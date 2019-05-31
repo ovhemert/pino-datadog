@@ -39,15 +39,15 @@
     "pino-multi-stream": "^4.0.2",
     "sinon": "^7.3.2",
     "standard": "^12.0.0",
-    "tap": "^14.1.11"
+    "tap": "^14.2.0"
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "batch2": "^1.0.2",
+    "batch2": "^1.0.4",
     "commander": "^2.20.0",
     "fast-json-parse": "^1.0.3",
     "pumpify": "^1.5.1",
-    "snyk": "^1.167.2",
+    "snyk": "^1.170.0",
     "split2": "^3.1.1",
     "stream": "0.0.2",
     "through2": "^3.0.1"
