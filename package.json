@@ -11,7 +11,8 @@
     "test:appveyor": "standard && tap test/*.test.js --coverage",
     "test:report": "standard && tap test/*.test.js --coverage  --coverage-report=html --100",
     "posttest": "tap --coverage --coverage-report=lcovonly",
-    "snyk-protect": "snyk protect"
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "bin": {
     "pino-datadog": "src/cli.js"
@@ -47,7 +48,7 @@
     "commander": "^2.20.0",
     "fast-json-parse": "^1.0.3",
     "pumpify": "^1.5.1",
-    "snyk": "^1.170.0",
+    "snyk": "^1.189.0",
     "split2": "^3.1.1",
     "stream": "0.0.2",
     "through2": "^3.0.1"
