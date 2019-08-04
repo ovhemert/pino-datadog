@@ -38,15 +38,15 @@ test('does not stream invalid json', t => {
 
 test('transforms pino log messages', t => {
   const writeStream = tested.toLogEntryStream()
-  let output = []
+  const output = []
   const logs = [
-    { 'level': 10, 'time': 1532081790710, 'msg': 'trace message', 'pid': 9118, 'hostname': 'Osmonds-MacBook-Pro.local', 'v': 1 },
-    { 'level': 20, 'time': 1532081790720, 'msg': 'debug message', 'pid': 9118, 'hostname': 'Osmonds-MacBook-Pro.local', 'v': 1 },
-    { 'level': 30, 'time': 1532081790730, 'msg': 'info message', 'pid': 9118, 'hostname': 'Osmonds-MacBook-Pro.local', 'v': 1 },
-    { 'level': 40, 'time': 1532081790740, 'msg': 'warning message', 'pid': 9118, 'hostname': 'Osmonds-MacBook-Pro.local', 'v': 1 },
-    { 'level': 50, 'time': 1532081790750, 'msg': 'error message', 'pid': 9118, 'hostname': 'Osmonds-MacBook-Pro.local', 'type': 'Error', 'stack': 'Error: error message', 'v': 1 },
-    { 'level': 60, 'time': 1532081790760, 'msg': 'fatal message', 'pid': 9118, 'hostname': 'Osmonds-MacBook-Pro.local', 'v': 1 },
-    { 'level': 30, 'pid': 9118, 'ddsource': 'test', 'service': 'myservice', 'tags': { 'foo': 'bar' }, 'v': 1 }
+    { level: 10, time: 1532081790710, msg: 'trace message', pid: 9118, hostname: 'Osmonds-MacBook-Pro.local', v: 1 },
+    { level: 20, time: 1532081790720, msg: 'debug message', pid: 9118, hostname: 'Osmonds-MacBook-Pro.local', v: 1 },
+    { level: 30, time: 1532081790730, msg: 'info message', pid: 9118, hostname: 'Osmonds-MacBook-Pro.local', v: 1 },
+    { level: 40, time: 1532081790740, msg: 'warning message', pid: 9118, hostname: 'Osmonds-MacBook-Pro.local', v: 1 },
+    { level: 50, time: 1532081790750, msg: 'error message', pid: 9118, hostname: 'Osmonds-MacBook-Pro.local', type: 'Error', stack: 'Error: error message', v: 1 },
+    { level: 60, time: 1532081790760, msg: 'fatal message', pid: 9118, hostname: 'Osmonds-MacBook-Pro.local', v: 1 },
+    { level: 30, pid: 9118, ddsource: 'test', service: 'myservice', tags: { foo: 'bar' }, v: 1 }
   ]
   writeStream.on('data', chunk => {
     output.push(chunk)
@@ -57,7 +57,7 @@ test('transforms pino log messages', t => {
     t.equal(output[3].status, 'warning')
     t.equal(output[4].status, 'error')
     t.equal(output[5].status, 'critical')
-    t.ok(output[6].hasOwnProperty('timestamp'))
+    t.ok(Object.prototype.hasOwnProperty.call(output[6], 'timestamp'))
     t.equal(output[6].message, 'info')
     t.equal(output[6].host, '')
     t.end()

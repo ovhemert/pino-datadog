@@ -4,7 +4,7 @@ const test = require('tap').test
 const tested = require('../src/datadog')
 const sinon = require('sinon')
 
-let axios = require('axios')
+const axios = require('axios')
 
 test('creates client', t => {
   const client = new tested.Client({ apiKey: '1234567890' })
@@ -13,7 +13,7 @@ test('creates client', t => {
 })
 
 test('calls insert without document', t => {
-  let client = new tested.Client()
+  const client = new tested.Client()
   client.insert().then(data => {
     t.equals(data, undefined)
     t.end()
@@ -21,8 +21,8 @@ test('calls insert without document', t => {
 })
 
 test('errors on failed insert', async t => {
-  let client = new tested.Client()
-  let stubPost = sinon.stub(axios, 'post').rejects()
+  const client = new tested.Client()
+  const stubPost = sinon.stub(axios, 'post').rejects()
   const insert = client.insert({ message: 'crazy invalid document' })
   try {
     await t.rejects(insert)
@@ -33,8 +33,8 @@ test('errors on failed insert', async t => {
 })
 
 test('inserts single document', t => {
-  let client = new tested.Client()
-  let stubPost = sinon.stub(axios, 'post').resolvesArg(1)
+  const client = new tested.Client()
+  const stubPost = sinon.stub(axios, 'post').resolvesArg(1)
   client.insert({ message: 'hello world' }).then(data => {
     t.equals(data.length, 1)
     t.equals(data[0].message, 'hello world')
@@ -44,8 +44,8 @@ test('inserts single document', t => {
 })
 
 test('inserts multiple documents', t => {
-  let client = new tested.Client()
-  let stubPost = sinon.stub(axios, 'post').resolvesArg(1)
+  const client = new tested.Client()
+  const stubPost = sinon.stub(axios, 'post').resolvesArg(1)
   client.insert([{ message: 'test 1' }, { message: 'test 2' }, { message: 'test 3' }]).then(data => {
     t.equals(data.length, 3)
     t.equals(data[0].message, 'test 1')
@@ -57,9 +57,9 @@ test('inserts multiple documents', t => {
 })
 
 test('inserts with write stream', t => {
-  let client = new tested.Client()
-  let stubPost = sinon.stub(axios, 'post')
-  let ws = client.insertStream()
+  const client = new tested.Client()
+  const stubPost = sinon.stub(axios, 'post')
+  const ws = client.insertStream()
   ws.write({ message: 'test 1' })
   ws.end()
   t.ok(stubPost.called)

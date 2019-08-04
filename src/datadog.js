@@ -7,6 +7,7 @@ class Client {
   constructor (options = {}) {
     this._apiKey = options.apiKey
   }
+
   async insert (items = []) {
     const data = Array.isArray(items) ? items : [items]
     if (data.length <= 0) { return }
@@ -18,9 +19,10 @@ class Client {
       throw Error(err.message)
     }
   }
+
   insertStream () {
     const self = this
-    let writeStream = new stream.Writable({ objectMode: true, highWaterMark: 1 })
+    const writeStream = new stream.Writable({ objectMode: true, highWaterMark: 1 })
     writeStream._write = function (chunk, encoding, callback) {
       self.insert(chunk).then(() => { callback(null) }).catch(callback)
     }

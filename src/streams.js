@@ -35,7 +35,7 @@ function toLogEntry (item) {
   const objTags = (item.labels || item.tags || {})
   const ddtags = Object.keys(objTags).map(k => { return `${k}:${objTags[k]}` }).join(',')
 
-  let entry = Object.assign({}, item, { timestamp, status, message, host, service, ddsource, ddtags })
+  const entry = Object.assign({}, item, { timestamp, status, message, host, service, ddsource, ddtags })
   delete entry.time; delete entry.level; delete entry.msg; delete entry.hostname; delete entry.source; delete entry.labels; delete entry.tags
   if (!service) { delete entry.service }
   if (!ddsource) { delete entry.ddsource }
