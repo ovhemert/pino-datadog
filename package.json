@@ -1,6 +1,6 @@
 {
   "name": "pino-datadog",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A transport for pino that sends messages to DataDog",
   "homepage": "https://github.com/ovhemert/pino-datadog",
   "main": "src/index.js",
