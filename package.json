@@ -43,7 +43,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "batch2": "^1.0.5",
-    "commander": "^2.20.0",
+    "commander": "^3.0.0",
     "fast-json-parse": "^1.0.3",
     "pumpify": "^2.0.0",
     "snyk": "^1.208.0",
