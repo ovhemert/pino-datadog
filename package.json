@@ -36,7 +36,7 @@
   ],
   "devDependencies": {
     "pino-multi-stream": "^4.1.0",
-    "sinon": "^7.4.0",
+    "sinon": "^7.4.1",
     "standard": "^14.0.0",
     "tap": "^14.6.1"
   },
@@ -46,7 +46,7 @@
     "commander": "^3.0.0",
     "fast-json-parse": "^1.0.3",
     "pumpify": "^2.0.0",
-    "snyk": "^1.208.0",
+    "snyk": "^1.217.3",
     "split2": "^3.1.1",
     "stream": "0.0.2",
     "through2": "^3.0.1"
