@@ -6,13 +6,14 @@ const stream = require('stream')
 class Client {
   constructor (options = {}) {
     this._apiKey = options.apiKey
+    this._apiUrl = options.apiUrl || "https://http-intake.logs.datadoghq.com/v1/"
   }
 
   async insert (items = []) {
     const data = Array.isArray(items) ? items : [items]
     if (data.length <= 0) { return }
     try {
-      const url = `https://http-intake.logs.datadoghq.com/v1/input/${this._apiKey}`
+      const url = `${this._apiUrl}input/${this._apiKey}`
       const result = await axios.post(url, data)
       return result
     } catch (err) {
