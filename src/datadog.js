@@ -6,7 +6,7 @@ const stream = require('stream')
 class Client {
   constructor (options = {}) {
     this._apiKey = options.apiKey
-    this._apiUrl = options.apiUrl || "https://http-intake.logs.datadoghq.com/v1/"
+    this._apiUrl = options.apiUrl || 'https://http-intake.logs.datadoghq.com/v1/'
   }
 
   async insert (items = []) {
