@@ -15,7 +15,7 @@ function main () {
         const apiKey = key || process.env.DD_API_KEY
         const writeStream = await pinoDataDog.createWriteStream({ apiKey })
         process.stdin.pipe(writeStream)
-        console.info('logging')
+        process.stdin.pipe(process.stdout)
       } catch (error) {
         console.log(error.message)
       }
