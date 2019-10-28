@@ -32,7 +32,8 @@ class Client {
       const result = await axios.post(url, data, { params })
       return result
     } catch (err) {
-      throw Error(err.message)
+      console.error('The previous log have not been saved')
+      console.error(err.stack || err)
     }
   }
 
