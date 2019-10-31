@@ -16,13 +16,17 @@ $ node foo | pino-datadog --key blablabla
 
 ## Usage
 
-You can pass the following options via cli arguments:
+You can pass the following options via cli arguments or use the environment variable associated:
 
-| Short command | Full command | Description |
+| Short command | Full command | Environment variable | Description |
 | ------------- | ------------ |-------------|
-| -V | --version | Output the version number |
-| -k | --key &lt;apikey&gt; | The API key that can be found in your DataDog account |
-| -b | --batch &lt;size&gt; | The number of log messages to send as a single batch (defaults to 1) |
-| -h | --help | Output usage information |
+| -V | --version | | Output the version number |
+| -k | --key &lt;apikey&gt; | DD_API_KEY | The API key that can be found in your DataDog account |
+| -d | --ddsource &lt;source&gt; | DD_SOURCE | Default source for the logs |
+| -s, --service &lt;service&gt; | DD_SERVICE | Default service for the logs |
+| | --hostname &lt;hostname&gt; | DD_HOSTNAME | Default hostname for the logs |
+| -e | --eu | DD_EU | Use Datadog EU site |
+| -b | --batch &lt;size&gt; | | The number of log messages to send as a single batch (defaults to 1) |
+| -h | --help | | Output usage information |
 
 See the [API](./API.md) documentation for details.

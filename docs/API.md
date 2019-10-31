@@ -42,3 +42,21 @@ The API key that can be found in your DataDog account (Integration > APIs).
 Type: `String` *(optional)*
 
 The number of log messages to send as a single batch (defaults to 1).
+
+#### ddsource
+
+Type: `String` *(optional)*
+
+Set a default source to all the logs sent to datadog
+
+#### service 
+
+Type: `String` *(optional)*
+
+Set a default service to all the logs sent to datadog
+
+#### hostname 
+
+Type: `String` *(optional)*
+
+Set a default hostname to all the logs sent to datadog
