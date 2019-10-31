@@ -14,12 +14,12 @@ test('calls insert without document', t => {
   })
 })
 
-test('errors on failed insert', async t => {
+test('does not error on invalid insert', async t => {
   const client = new tested.Client()
   const stubPost = sinon.stub(axios, 'post').rejects()
   const insert = client.insert({ message: 'crazy invalid document' })
   try {
-    await t.rejects(insert)
+    await t.resolves(insert)
   } finally {
     stubPost.restore()
     t.end()
