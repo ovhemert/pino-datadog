@@ -2,19 +2,24 @@
 
 const test = require('tap').test
 const tested = require('../src/index')
-// const sinon = require('sinon')
-
-// const datadog = require('../src/datadog')
 
 test('creates write stream', t => {
-  // let stubValidate = sinon.stub(datadog.Client.prototype, 'validate').resolves()
+  try {
+    const writeStream = tested.createWriteStreamSync()
+    t.ok(writeStream.writable)
+    t.end()
+  } catch (err) {
+    t.fail(err.message)
+    t.end()
+  }
+})
+
+test('creates write stream "async"', t => {
   tested.createWriteStream().then(writeStream => {
     t.ok(writeStream.writable)
-    // stubValidate.restore()
     t.end()
   }).catch(err => {
     t.fail(err.message)
-    // stubValidate.restore()
     t.end()
   })
 })
