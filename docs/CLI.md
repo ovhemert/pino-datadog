@@ -19,10 +19,11 @@ $ node foo | pino-datadog --key blablabla
 You can pass the following options via cli arguments or use the environment variable associated:
 
 | Short command | Full command | Environment variable | Description |
-| ------------- | ------------ |-------------|
+| --- | --- | --- | --- |
 | -V | --version | | Output the version number |
 | -k | --key &lt;apikey&gt; | DD_API_KEY | The API key that can be found in your DataDog account |
 | -d | --ddsource &lt;source&gt; | DD_SOURCE | Default source for the logs |
+| -t | --ddtags &lt;tags&gt; | DD_TAGS | Default list of tags for the logs |
 | -s, --service &lt;service&gt; | DD_SERVICE | Default service for the logs |
 | | --hostname &lt;hostname&gt; | DD_HOSTNAME | Default hostname for the logs |
 | -e | --eu | DD_EU | Use Datadog EU site |
