@@ -49,6 +49,12 @@ Type: `String` *(optional)*
 
 Set a default source to all the logs sent to datadog
 
+#### ddtags
+
+Type: `String` *(optional)*
+
+Set a default list of tags for all the logs sent to datadog
+
 #### service 
 
 Type: `String` *(optional)*
