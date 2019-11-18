@@ -21,6 +21,7 @@ logger.error(new Error('things got bad'), 'error message')
 ### createWriteStream
 
 The `createWriteStream` function creates a writestream that `pino-multi-stream` can use to send logs to.
+**This function is async because of compatibility reasons*
 
 Example:
 
@@ -29,6 +30,16 @@ const writeStream = await datadog.createWriteStream({
   apiKey: 'blablabla',
   size: 10
 })
+````
+
+### createWriteStreamSync
+
+The `createWriteStreamSync` function creates a writestream that `pino-multi-stream` can use to send logs to.
+
+Example:
+
+```js
+const writeStream = datadog.createWriteStreamSync({ apiKey: 'blablabla', size: 10 })
 ````
 
 #### apiKey
@@ -61,7 +72,7 @@ Type: `String` *(optional)*
 
 Set a default service to all the logs sent to datadog
 
-#### hostname 
+#### hostname
 
 Type: `String` *(optional)*
 
