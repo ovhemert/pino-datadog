@@ -5,6 +5,10 @@ const streams = require('./streams')
 const pumpify = require('pumpify')
 
 async function createWriteStream (options = {}) {
+  return createWriteStreamSync(options)
+}
+
+function createWriteStreamSync (options = {}) {
   const { size = 1 } = options
 
   const parseJsonStream = streams.parseJsonStream()
@@ -18,3 +22,4 @@ async function createWriteStream (options = {}) {
 }
 
 module.exports.createWriteStream = createWriteStream
+module.exports.createWriteStreamSync = createWriteStreamSync
