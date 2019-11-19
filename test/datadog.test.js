@@ -107,6 +107,7 @@ test('inserts sends extra parameters ', async t => {
   const client = new tested.Client({
     apiKey: '1234567890',
     ddsource: 'source',
+    ddtags: 'tag-1,tag-2,tag-3',
     service: 'service',
     hostname: 'foobar.com'
   })
@@ -122,6 +123,7 @@ test('inserts sends extra parameters ', async t => {
       {
         params: {
           ddsource: 'source',
+          ddtags: 'tag-1,tag-2,tag-3',
           service: 'service',
           hostname: 'foobar.com'
         }

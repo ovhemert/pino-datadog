@@ -21,6 +21,9 @@ class Client {
       if (this._options.ddsource) {
         params.ddsource = this._options.ddsource
       }
+      if (this._options.ddtags) {
+        params.ddtags = this._options.ddtags
+      }
       if (this._options.service) {
         params.service = this._options.service
       }
