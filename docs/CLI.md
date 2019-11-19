@@ -1,6 +1,6 @@
 # CLI
 
-To use `pino-datadog` from the command line, you need to install it globally:
+To use `pino-datadog` from the command line, you need to install it as a dependency before piping the output to it:
 
 ```bash
 $ npm install -g pino-datadog
