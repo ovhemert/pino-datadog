@@ -9,9 +9,7 @@
     "lint": "standard",
     "test": "standard && tap test/*.test.js --coverage --100",
     "test:report": "standard && tap test/*.test.js --coverage  --coverage-report=html --100",
-    "posttest": "tap --coverage --coverage-report=lcovonly",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "posttest": "tap --coverage --coverage-report=lcovonly"
   },
   "bin": {
     "pino-datadog": "src/cli.js"
@@ -47,10 +45,8 @@
     "commander": "^4.0.1",
     "fast-json-parse": "^1.0.3",
     "pumpify": "^2.0.1",
-    "snyk": "^1.248.0",
     "split2": "^3.1.1",
     "stream": "0.0.2",
     "through2": "^3.0.1"
-  },
-  "snyk": true
+  }
 }
