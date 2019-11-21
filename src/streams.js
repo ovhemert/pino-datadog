@@ -12,7 +12,7 @@ function batchStream (size) {
 function parseJsonStream () {
   return split2(function (str) {
     const result = fastJsonParse(str)
-    if (result.err) return null
+    if (result.err) return
     return result.value
   })
 }
