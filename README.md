@@ -4,7 +4,6 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fbe6390adeba49a5a62349410a8439cc)](https://www.codacy.com/app/ovhemert/pino-datadog?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ovhemert/pino-datadog&amp;utm_campaign=Badge_Grade)
 [![Known Vulnerabilities](https://snyk.io/test/npm/pino-datadog/badge.svg)](https://snyk.io/test/npm/pino-datadog)
 [![Coverage Status](https://coveralls.io/repos/github/ovhemert/pino-datadog/badge.svg?branch=master)](https://coveralls.io/github/ovhemert/pino-datadog?branch=master)
-[![Greenkeeper badge](https://badges.greenkeeper.io/ovhemert/pino-datadog.svg)](https://greenkeeper.io/)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 This module provides a "transport" for [pino][pino] that forwards messages to a [DataDog][datadog].
