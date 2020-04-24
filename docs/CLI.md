@@ -29,5 +29,6 @@ You can pass the following options via cli arguments or use the environment vari
 | -e | --eu | DD_EU | Use Datadog EU site |
 | -b | --batch &lt;size&gt; | | The number of log messages to send as a single batch (defaults to 1) |
 | -h | --help | | Output usage information |
+| | --no-stdout | | Disable output to stdout |
 
 See the [API](./API.md) documentation for details.

@@ -15,6 +15,7 @@ function main () {
     .option('-s, --service <service>', 'Default service for the logs')
     .option('--hostname <hostname>', 'Default hostname for the logs')
     .option('-e, --eu', 'Use Datadog EU site')
+    .option('--no-stdout', 'Disable output to stdout')
     .action(async options => {
       try {
         const config = {
@@ -27,7 +28,10 @@ function main () {
         }
         const writeStream = await pinoDataDog.createWriteStream(config)
         process.stdin.pipe(writeStream)
-        process.stdin.pipe(process.stdout)
+
+        if (!options.noStdout) {
+          process.stdin.pipe(process.stdout)
+        }
       } catch (error) {
         console.log(error.message)
       }
