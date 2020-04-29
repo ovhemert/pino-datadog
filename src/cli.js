@@ -29,7 +29,7 @@ function main () {
         const writeStream = await pinoDataDog.createWriteStream(config)
         process.stdin.pipe(writeStream)
 
-        if (!options.noStdout) {
+        if (options.stdout) {
           process.stdin.pipe(process.stdout)
         }
       } catch (error) {
