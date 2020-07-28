@@ -10,7 +10,7 @@ const pinoms = require('pino-multi-stream')
 // create the datadog destination stream
 const writeStream = await datadog.createWriteStream()
 // create pino loggger
-const logger = pinoms({ streams: [writeStream] })
+const logger = pinoms({ streams: [{ stream: writeStream }] })
 // log some events
 logger.info('Informational message')
 logger.error(new Error('things got bad'), 'error message')
@@ -66,7 +66,7 @@ Type: `String` *(optional)*
 
 Set a default list of tags for all the logs sent to datadog
 
-#### service 
+#### service
 
 Type: `String` *(optional)*
 

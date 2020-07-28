@@ -13,13 +13,13 @@ This module provides a "transport" for [pino][pino] that forwards messages to a 
 To use globally from command line:
 
 ```bash
-$ npm install -g pino-datadog
+npm install -g pino-datadog
 ```
 
 To include as a library in your project:
 
 ```bash
-$ npm install pino-datadog
+npm install pino-datadog
 ```
 
 ## CLI
@@ -40,7 +40,7 @@ Osmond van Hemert
 
 ## Contributing
 
-If you would like to help out with some code, check the [details](./docs/CONTRIBUTING.md).
+If you would like to help out with some code, check the [details](./.github/CONTRIBUTING.md).
 
 Not a coder, but still want to support? Have a look at the options available to [donate](https://ovhemert.dev/donate).
 

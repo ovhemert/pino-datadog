@@ -3,7 +3,7 @@
 To use `pino-datadog` from the command line, you need to install it globally:
 
 ```bash
-$ npm install -g pino-datadog
+npm install -g pino-datadog
 ```
 
 ## Example
@@ -11,7 +11,7 @@ $ npm install -g pino-datadog
 Given an application `foo` that logs via pino, you would use `pino-datadog` like so:
 
 ```bash
-$ node foo | pino-datadog --key blablabla
+node foo | pino-datadog --key blablabla
 ```
 
 ## Usage
