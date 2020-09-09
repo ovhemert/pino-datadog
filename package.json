@@ -40,12 +40,12 @@
     "tap": "^14.10.8"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.20.0",
     "batch2": "^1.0.6",
-    "commander": "^6.0.0",
+    "commander": "^6.1.0",
     "fast-json-parse": "^1.0.3",
     "pumpify": "^2.0.1",
-    "split2": "^3.1.1",
+    "split2": "^3.2.2",
     "stream": "0.0.2",
     "through2": "^4.0.2"
   }

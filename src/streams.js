@@ -36,7 +36,7 @@ function toLogEntry (item) {
   const ddtags = Object.keys(objTags).map(k => { return `${k}:${objTags[k]}` }).join(',')
 
   const entry = Object.assign({}, item, { timestamp, status, message, host, service, ddsource, ddtags })
-  delete entry.time; delete entry.level; delete entry.msg; delete entry.hostname; delete entry.source; delete entry.labels; delete entry.tags
+  delete entry.time; delete entry.level; delete entry.hostname; delete entry.source; delete entry.labels; delete entry.tags
   if (!service) { delete entry.service }
   if (!ddsource) { delete entry.ddsource }
   if (!ddtags) { delete entry.ddtags }
@@ -46,6 +46,9 @@ function toLogEntry (item) {
 function toLogEntryStream (options = {}) {
   return through2.obj(function transport (chunk, enc, cb) {
     const entry = toLogEntry(chunk)
+    if (!options.keepMsg) {
+      delete entry.msg
+    }
     cb(null, entry)
   })
 }
