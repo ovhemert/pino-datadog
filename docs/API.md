@@ -77,3 +77,9 @@ Set a default service to all the logs sent to datadog
 Type: `String` *(optional)*
 
 Set a default hostname to all the logs sent to datadog
+
+#### keepMsg
+
+Type: `Boolean` *(optional)*
+
+Keep the `msg` attribute in the log record. Used to allow a Datadog facet on the message.

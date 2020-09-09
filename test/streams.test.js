@@ -65,3 +65,20 @@ test('transforms pino log messages', t => {
   logs.forEach(log => writeStream.write(log))
   writeStream.end()
 })
+
+test('transforms pino log stream, leaves msg alone', t => {
+  const writeStream = tested.toLogEntryStream({ keepMsg: true })
+  const output = []
+  const logs = [
+    { level: 10, time: 1532081790710, msg: 'trace message' }
+  ]
+  writeStream.on('data', chunk => {
+    output.push(chunk)
+  }).on('end', () => {
+    t.equal(output[0].message, 'trace message')
+    t.equal(output[0].msg, 'trace message')
+    t.end()
+  })
+  logs.forEach(log => writeStream.write(log))
+  writeStream.end()
+})
