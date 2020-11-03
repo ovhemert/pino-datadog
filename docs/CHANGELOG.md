@@ -15,7 +15,9 @@ Changes are grouped by:
 
 ## [Unreleased](https://github.com/ovhemert/pino-datadog/compare/v2.0.1...HEAD)
 
-- ...
+### Added
+
+- Add noWait parameter for better perfornace in node environments by [@francisu](https://github.com/francisu)
 
 ## [2.0.1](https://github.com/ovhemert/pino-datadog/compare/v2.0.0...v2.0.1) - 2020-09-09
 
