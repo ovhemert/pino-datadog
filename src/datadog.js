@@ -14,9 +14,9 @@ class Client {
       return
     }
     try {
-      const domain = this._options.eu
-        ? 'https://http-intake.logs.datadoghq.eu'
-        : 'https://http-intake.logs.datadoghq.com'
+      const hostname = this._options.eu
+        ? 'http-intake.logs.datadoghq.eu'
+        : 'http-intake.logs.datadoghq.com'
       const params = {}
       if (this._options.ddsource) {
         params.ddsource = this._options.ddsource
