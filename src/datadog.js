@@ -31,9 +31,32 @@ class Client {
         params.hostname = this._options.hostname
       }
 
-      const url = `${domain}/v1/input/${this._options.apiKey}`
-      const result = await axios.post(url, data, { params })
-      return result
+      const basePath = `/v1/input/${this._options.apiKey}`
+      if (this._options.noWait) {
+        const http = require('https')
+        const dataString = JSON.stringify(data)
+        let paramString = ''
+        Object.keys(params).forEach(k => { paramString += `&${k}=${params[k]}` })
+        if (paramString.length > 0) {
+          paramString = '?' + paramString.substring(1)
+        }
+        const options = {
+          hostname,
+          path: `${basePath}${paramString}`,
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'Content-Length': dataString.length
+          }
+        }
+        const req = http.request(options)
+        req.write(dataString)
+        req.end()
+        return {}
+      } else {
+        const url = `${hostname}${basePath}`
+        return await axios.post(`https://${url}`, data, { params })
+      }
     } catch (err) {
       console.error('The previous log have not been saved')
       console.error(`${err.message}\n${err.stack}`)

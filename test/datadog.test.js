@@ -5,6 +5,7 @@ const tested = require('../src/datadog')
 const sinon = require('sinon')
 
 const axios = require('axios')
+const http = require('https')
 
 test('calls insert without document', t => {
   const client = new tested.Client()
@@ -131,5 +132,34 @@ test('inserts sends extra parameters ', async t => {
     )
   )
   stubPost.restore()
+  t.end()
+})
+
+test('inserts works with noWait', async t => {
+  const client = new tested.Client({ apiKey: '1234567890' })
+  client._options.noWait = true
+  client._options.ddtags = 'abc'
+  const stubRequest = sinon.stub(http, 'request')
+  stubRequest.returns({ write: () => {}, end: () => {} })
+  const items = [{ message: 'hello world !' }]
+
+  await client.insert(items)
+  t.ok(stubRequest.called)
+  t.ok(stubRequest.calledWithMatch(
+    {
+      hostname: 'http-intake.logs.datadoghq.com',
+      path: '/v1/input/1234567890?ddtags=abc',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8', 'Content-Length': 29 }
+    }))
+
+  delete client._options.ddtags
+  await client.insert(items)
+  t.ok(stubRequest.calledWithMatch(
+    {
+      path: '/v1/input/1234567890'
+    }))
+
+  stubRequest.restore()
   t.end()
 })

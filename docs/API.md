@@ -83,3 +83,12 @@ Set a default hostname to all the logs sent to datadog
 Type: `Boolean` *(optional)*
 
 Keep the `msg` attribute in the log record. Used to allow a Datadog facet on the message.
+
+#### noWait
+
+Type: `Boolean` *(optional)*
+
+Only available in a node environment, this provides a substantial performance improvement (circa <10ms vs 300-500ms)
+when sending the log messages to DataDog because it does not wait for the HTTP POST response. This is particularly
+useful for AWS Lambda functions where the logging stream must be closed before the function returns in order
+to avoid losing data.
