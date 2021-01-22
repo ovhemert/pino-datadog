@@ -15,6 +15,7 @@ function main () {
     .option('-s, --service <service>', 'Default service for the logs')
     .option('--hostname <hostname>', 'Default hostname for the logs')
     .option('-e, --eu', 'Use Datadog EU site')
+    .option('-b, --batch <size>', 'The number of log messages to send as a single batch (defaults to 1)')
     .option('--no-stdout', 'Disable output to stdout')
     .action(async options => {
       try {
@@ -24,7 +25,8 @@ function main () {
           ddtags: options.ddtags || process.env.DD_TAGS,
           service: options.service || process.env.DD_SERVICE,
           hostname: options.hostname || process.env.DD_HOSTNAME,
-          eu: options.eu || !!process.env.DD_EU
+          eu: options.eu || !!process.env.DD_EU,
+          size: options.batch || 1
         }
         const writeStream = await pinoDataDog.createWriteStream(config)
         process.stdin.pipe(writeStream)
