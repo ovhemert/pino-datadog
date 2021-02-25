@@ -13,9 +13,19 @@ Changes are grouped by:
 `Fixed` for any bug fixes
 `Security` in case of vulnerabilities
 
-## [Unreleased](https://github.com/ovhemert/pino-datadog/compare/v2.0.1...HEAD)
+## [Unreleased](https://github.com/ovhemert/pino-datadog/compare/v2.0.2...HEAD)
 
 - ...
+
+## [2.0.2](https://github.com/ovhemert/pino-datadog/compare/v2.0.1...v2.0.2) - 2021-02-25
+
+### Fixed
+
+- Add missing batch size CLI option by [@abalhier](https://github.com/abalhier)
+
+### Security
+
+- Fixed external vulnerabilities by upgrading dependencies by [@ovhemert](https://github.com/ovhemert)
 
 ## [2.0.1](https://github.com/ovhemert/pino-datadog/compare/v2.0.0...v2.0.1) - 2020-09-09
 
