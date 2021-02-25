@@ -34,10 +34,10 @@
     "test"
   ],
   "devDependencies": {
-    "pino-multi-stream": "^5.1.1",
-    "sinon": "^9.0.2",
+    "pino-multi-stream": "^5.2.0",
+    "sinon": "^9.2.4",
     "standard": "^14.3.4",
-    "tap": "^14.10.8"
+    "tap": "^14.11.0"
   },
   "dependencies": {
     "axios": "^0.21.1",
