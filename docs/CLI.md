@@ -22,6 +22,7 @@ You can pass the following options via cli arguments or use the environment vari
 | --- | --- | --- | --- |
 | -V | --version | | Output the version number |
 | -k | --key &lt;apikey&gt; | DD_API_KEY | The API key that can be found in your DataDog account |
+| -c | --token &lt;clientToken&gt; | DD_CLIENT_TOKEN | The client token that can be found in your DataDog account |
 | -d | --ddsource &lt;source&gt; | DD_SOURCE | Default source for the logs |
 | -t | --ddtags &lt;tags&gt; | DD_TAGS | Default list of tags for the logs |
 | -s, --service &lt;service&gt; | DD_SERVICE | Default service for the logs |

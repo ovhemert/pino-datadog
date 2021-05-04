@@ -46,7 +46,13 @@ const writeStream = datadog.createWriteStreamSync({ apiKey: 'blablabla', size: 1
 
 Type: `String` *(required)*
 
-The API key that can be found in your DataDog account (Integration > APIs).
+The API key that can be found in your DataDog account (Integration > APIs). Mutually excluse with `clientToken`.
+
+#### clientToken
+
+Type: `String` *(required)*
+
+The client token that can be found in your DataDog account (Integration > APIs). Mutually excluse with `apiKey`.
 
 #### size
 
