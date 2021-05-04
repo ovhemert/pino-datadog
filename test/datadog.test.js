@@ -76,7 +76,25 @@ test('inserts sends com url and api key', async t => {
   t.ok(stubPost.called)
   t.ok(
     stubPost.calledWithMatch(
-      'https://http-intake.logs.datadoghq.com/v1/input/1234567890',
+      'https://logs-http-intake.logs.datadoghq.com/v1/input/1234567890',
+      items,
+      { params: {} }
+    )
+  )
+  stubPost.restore()
+  t.end()
+})
+
+test('inserts sends client token', async t => {
+  const client = new tested.Client({ clientToken: '1234567890' })
+  const stubPost = sinon.stub(axios, 'post')
+  const items = [{ message: 'hello world !' }]
+
+  await client.insert(items)
+  t.ok(stubPost.called)
+  t.ok(
+    stubPost.calledWithMatch(
+      'https://browser-http-intake.logs.datadoghq.com/v1/input/1234567890',
       items,
       { params: {} }
     )
@@ -94,7 +112,7 @@ test('inserts sends eu url and api key', async t => {
   t.ok(stubPost.called)
   t.ok(
     stubPost.calledWithMatch(
-      'https://http-intake.logs.datadoghq.eu/v1/input/1234567890',
+      'https://logs-http-intake.logs.datadoghq.eu/v1/input/1234567890',
       items,
       { params: {} }
     )
@@ -118,7 +136,7 @@ test('inserts sends extra parameters ', async t => {
   t.ok(stubPost.called)
   t.ok(
     stubPost.calledWithMatch(
-      'https://http-intake.logs.datadoghq.com/v1/input/1234567890',
+      'https://logs-http-intake.logs.datadoghq.com/v1/input/1234567890',
       items,
       {
         params: {

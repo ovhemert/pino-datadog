@@ -14,9 +14,10 @@ class Client {
       return
     }
     try {
+      const endpoint = this._options.clientToken ? 'browser' : 'logs'
       const domain = this._options.eu
-        ? 'https://http-intake.logs.datadoghq.eu'
-        : 'https://http-intake.logs.datadoghq.com'
+        ? `https://${endpoint}-http-intake.logs.datadoghq.eu`
+        : `https://${endpoint}-http-intake.logs.datadoghq.com`
       const params = {}
       if (this._options.ddsource) {
         params.ddsource = this._options.ddsource
@@ -31,7 +32,8 @@ class Client {
         params.hostname = this._options.hostname
       }
 
-      const url = `${domain}/v1/input/${this._options.apiKey}`
+      const token = this._options.clientToken || this._options.apiKey
+      const url = `${domain}/v1/input/${token}`
       const result = await axios.post(url, data, { params })
       return result
     } catch (err) {
