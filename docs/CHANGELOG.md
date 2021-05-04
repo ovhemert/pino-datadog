@@ -15,7 +15,9 @@ Changes are grouped by:
 
 ## [Unreleased](https://github.com/ovhemert/pino-datadog/compare/v2.0.2...HEAD)
 
-- ...
+### Added
+
+- Add client tokens support by [ngryman](https://github.com/ngryman)
 
 ## [2.0.2](https://github.com/ovhemert/pino-datadog/compare/v2.0.1...v2.0.2) - 2021-02-25
 
