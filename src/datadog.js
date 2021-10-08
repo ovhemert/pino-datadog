@@ -21,15 +21,26 @@ class Client {
       if (this._options.ddsource) {
         params.ddsource = this._options.ddsource
       }
-      if (this._options.ddtags) {
-        params.ddtags = this._options.ddtags
-      }
       if (this._options.service) {
         params.service = this._options.service
       }
       if (this._options.hostname) {
         params.hostname = this._options.hostname
       }
+
+      items.forEach((item) => {
+        // per-log tags override global / config-level tags
+        const tags = Object.assign({}, this._options.ddtags, item.ddtags)
+        const tagEntries = Object.entries(tags)
+
+        if (tagEntries.length > 0) {
+          item.ddtags = tagEntries
+            .map(([k, v]) => (v === true ? k : `${k}:${v}`))
+            .join(",")
+        } else {
+          delete item.ddtags
+        }
+      });
 
       const url = `${domain}/v1/input/${this._options.apiKey}`
       const result = await axios.post(url, data, { params })
