@@ -41,11 +41,11 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "batch2": "^1.0.6",
     "commander": "^8.3.0",
+    "batch2": "^2.0.0",
     "fast-json-parse": "^1.0.3",
     "pumpify": "^2.0.1",
-    "split2": "^3.2.2",
+    "split2": "^4.1.0",
     "stream": "0.0.2",
     "through2": "^4.0.2"
   }
