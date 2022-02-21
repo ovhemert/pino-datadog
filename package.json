@@ -40,7 +40,7 @@
     "tap": "^14.11.0"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "batch2": "^2.0.0",
     "commander": "^6.2.1",
     "fast-json-parse": "^1.0.3",
