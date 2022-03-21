@@ -9,7 +9,7 @@ const datadog = require('pino-datadog')
 const pinoms = require('pino-multi-stream')
 // create the datadog destination stream
 const writeStream = await datadog.createWriteStream()
-// create pino loggger
+// create pino logger
 const logger = pinoms({ streams: [{ stream: writeStream }] })
 // log some events
 logger.info('Informational message')
