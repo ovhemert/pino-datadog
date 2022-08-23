@@ -83,3 +83,9 @@ Set a default hostname to all the logs sent to datadog
 Type: `Boolean` *(optional)*
 
 Keep the `msg` attribute in the log record. Used to allow a Datadog facet on the message.
+
+#### eu
+
+Type: `Boolean` *(optional)*
+
+Sends logs to Datadog's EU intake endpoint instead of US (which is default).
