@@ -27,8 +27,8 @@ class Client {
       if (this._options.service) {
         params.service = this._options.service
       }
-      if (this._options.hostname) {
-        params.hostname = this._options.hostname
+      if (this._options.hostname || this._options.host) {
+        params.host = this._options.hostname || this._options.host
       }
 
       const url = `${domain}/v1/input/${this._options.apiKey}`

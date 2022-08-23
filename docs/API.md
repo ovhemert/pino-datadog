@@ -72,11 +72,11 @@ Type: `String` *(optional)*
 
 Set a default service to all the logs sent to datadog
 
-#### hostname
+#### host (hostname is also allowed)
 
 Type: `String` *(optional)*
 
-Set a default hostname to all the logs sent to datadog
+Set a default host to all the logs sent to datadog
 
 #### keepMsg
 
