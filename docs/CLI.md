@@ -29,6 +29,7 @@ You can pass the following options via cli arguments or use the environment vari
 | -e | --eu | DD_EU | Use Datadog EU site |
 | -b | --batch &lt;size&gt; | | The number of log messages to send as a single batch (defaults to 1) |
 | -h | --help | | Output usage information |
+| | --site &lt;site&gt; | | Specify a datadog site (i.e. US, US3, US5, etc.). Defaults to US. If using EU, use the `eu` option instead.  |
 | | --no-stdout | | Disable output to stdout |
 
 See the [API](./API.md) documentation for details.

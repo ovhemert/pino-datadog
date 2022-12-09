@@ -103,6 +103,60 @@ test('inserts sends eu url and api key', async t => {
   t.end()
 })
 
+test('insert sends to specified site', async t => {
+  const client = new tested.Client({ apiKey: '1234567890', site: 'us3' })
+  const stubPost = sinon.stub(axios, 'post')
+  const items = [{ message: 'hello world !' }]
+
+  await client.insert(items)
+  t.ok(stubPost.called)
+  t.ok(
+    stubPost.calledWithMatch(
+      'https://http-intake.logs.us3.datadoghq.com/v1/input/1234567890',
+      items,
+      { params: {} }
+    )
+  )
+  stubPost.restore()
+  t.end()
+})
+
+test('insert uses lowercase for site', async t => {
+  const client = new tested.Client({ apiKey: '1234567890', site: 'US5' })
+  const stubPost = sinon.stub(axios, 'post')
+  const items = [{ message: 'hello world !' }]
+
+  await client.insert(items)
+  t.ok(stubPost.called)
+  t.ok(
+    stubPost.calledWithMatch(
+      'https://http-intake.logs.us5.datadoghq.com/v1/input/1234567890',
+      items,
+      { params: {} }
+    )
+  )
+  stubPost.restore()
+  t.end()
+})
+
+test('insert does not specify site if default US is provided', async t => {
+  const client = new tested.Client({ apiKey: '1234567890', site: 'US' })
+  const stubPost = sinon.stub(axios, 'post')
+  const items = [{ message: 'hello world !' }]
+
+  await client.insert(items)
+  t.ok(stubPost.called)
+  t.ok(
+    stubPost.calledWithMatch(
+      'https://http-intake.logs.datadoghq.com/v1/input/1234567890',
+      items,
+      { params: {} }
+    )
+  )
+  stubPost.restore()
+  t.end()
+})
+
 test('inserts sends extra parameters ', async t => {
   const client = new tested.Client({
     apiKey: '1234567890',
