@@ -83,3 +83,9 @@ Set a default hostname to all the logs sent to datadog
 Type: `Boolean` *(optional)*
 
 Keep the `msg` attribute in the log record. Used to allow a Datadog facet on the message.
+
+#### site
+
+Type: `String` *(optional)*
+
+Specify a datadog site (i.e. US, US3, US5, etc.). Defaults to US. If using EU, use the `eu` option instead. Fedramp not supported.

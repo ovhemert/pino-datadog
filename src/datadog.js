@@ -14,9 +14,17 @@ class Client {
       return
     }
     try {
+      let site = ''
+      if (this._options.site) {
+        const siteLower = this._options.site.toLowerCase()
+        if (siteLower !== 'us' && siteLower !== 'eu') {
+          site = `${siteLower}.`
+        }
+      }
+
       const domain = this._options.eu
         ? 'https://http-intake.logs.datadoghq.eu'
-        : 'https://http-intake.logs.datadoghq.com'
+        : `https://http-intake.logs.${site}datadoghq.com`
       const params = {}
       if (this._options.ddsource) {
         params.ddsource = this._options.ddsource
